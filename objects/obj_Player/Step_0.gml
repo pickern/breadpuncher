@@ -8,6 +8,10 @@ key_up = input.input_check("d_up");
 key_jump = input.input_down("key_jump");
 key_down_pressed = input.input_down("d_down");
 key_attack_pressed = input.input_check("c_neutral");
+key_attack_up_pressed = input.input_check("c_up");
+key_attack_down_pressed = input.input_check("c_down");
+key_attack_right_pressed = input.input_check("c_right");
+key_attack_left_pressed = input.input_check("c_left");
 
 
 switch current_state

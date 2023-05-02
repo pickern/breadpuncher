@@ -47,3 +47,27 @@ function input_down(in_key){
 	// arg - in_key - string for key to check
 	return keyboard_check_pressed(current_input_profile[$ in_key]);
 }
+
+// check c stick
+function input_check_c_stick(){
+	if keyboard_check_pressed(current_input_profile[$ "c_up"])
+	{
+		return "up";	
+	}
+	else if keyboard_check_pressed(current_input_profile[$ "c_down"])
+	{
+		return "down";	
+	}
+	else if keyboard_check_pressed(current_input_profile[$ "c_left"])
+	{
+		return "left";	
+	}
+	else if keyboard_check_pressed(current_input_profile[$ "c_right"])
+	{
+		return "right";	
+	}
+	else
+	{
+		return "none";	
+	}
+}
