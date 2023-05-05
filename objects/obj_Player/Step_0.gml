@@ -281,10 +281,43 @@ switch current_state
 			is_grounded = false;
 		}
 		// check if attack
-		else if key_attack_pressed
+		else if input.input_check_c_stick() != "none"
 		{
+			temp_in = input.input_check_c_stick();
+			switch (temp_in)
+			{
+				case "up":
+					current_attack = attack_air_up;
+				break;
+				case "down":
+					current_attack = attack_air_down;
+				break;
+				case "left":
+					if image_xscale == -1
+					{
+						current_attack = attack_air_forward;	
+					}
+					else
+					{
+						current_attack = attack_air_back;	
+					}
+				break;
+				case "right":
+					if image_xscale == 1
+					{
+						current_attack = attack_air_forward;	
+					}
+					else
+					{
+						current_attack = attack_air_back;	
+					}
+				break;
+				case "neutral":
+					current_attack = attack_air_neutral;
+				break;
+			}
 			current_state = state_attack_air;
-			current_attack = attack_air_up;
+			
 		}
 		// do physics
 		// horizontal movement

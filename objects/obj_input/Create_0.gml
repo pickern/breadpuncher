@@ -21,7 +21,7 @@ profile_b0xx60_colemak =
 		d_left: ord("Q"),
 		d_down: ord("W"),
 		d_right: ord("S"),
-		c_up: 110, // .
+		c_up: 190, // .
 		c_left: 188, // ,
 		c_down: vk_space,
 		c_right: 191, // /
@@ -65,6 +65,10 @@ function input_check_c_stick(){
 	else if keyboard_check_pressed(current_input_profile[$ "c_right"])
 	{
 		return "right";	
+	}
+	else if keyboard_check_pressed(current_input_profile[$ "c_neutral"])
+	{
+		return "neutral";	
 	}
 	else
 	{

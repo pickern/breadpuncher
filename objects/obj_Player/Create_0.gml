@@ -47,10 +47,10 @@ attack_jab = new make_attack(10,0, 0);
 attack_slide = new make_attack(30,sprite_attack_slide, hitbox_attack_slide, 1);
 attack_tilt_up = new make_attack(24,sprite_attack_tilt_up1, hitbox_attack_air_up1, 0);
 attack_air_up = new make_attack(24,sprite_attack_air_up1, hitbox_attack_air_up1, 0);
-attack_air_down = new make_attack(24,sprite_attack_air_down1, hitbox_attack_air_up1, 0);
-attack_air_forward = new make_attack(24,sprite_attack_air_forward1, hitbox_attack_air_up1, 0);
-attack_air_back = new make_attack(24,sprite_attack_air_back1, hitbox_attack_air_up1, 0);
-attack_air_neutral = new make_attack(24,sprite_attack_air_neutral, hitbox_attack_air_up1, 0);
+attack_air_down = new make_attack(24,sprite_attack_air_down1, hitbox_attack_air_down1, 0);
+attack_air_forward = new make_attack(24,sprite_attack_air_forward1, hitbox_attack_air_forward1, 0);
+attack_air_back = new make_attack(24,sprite_attack_air_back1, hitbox_attack_air_back1, 0);
+attack_air_neutral = new make_attack(24,sprite_attack_air_neutral, hitbox_attack_air_neutral, 0);
 
 //attack structs
 
