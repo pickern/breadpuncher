@@ -31,6 +31,7 @@
     {"id":{"name":"sprite_attack_air_up1","path":"sprites/sprite_attack_air_up1/sprite_attack_air_up1.yy",},"order":9,},
     {"id":{"name":"obj_Dust","path":"objects/obj_Dust/obj_Dust.yy",},"order":2,},
     {"id":{"name":"ground","path":"sprites/ground/ground.yy",},"order":3,},
+    {"id":{"name":"obj_hit_manager","path":"objects/obj_hit_manager/obj_hit_manager.yy",},"order":6,},
     {"id":{"name":"hitbox_attack_air_forward1","path":"sprites/hitbox_attack_air_forward1/hitbox_attack_air_forward1.yy",},"order":25,},
     {"id":{"name":"Collision_square","path":"sprites/Collision_square/Collision_square.yy",},"order":4,},
     {"id":{"name":"hitbox_attack_air_neutral","path":"sprites/hitbox_attack_air_neutral/hitbox_attack_air_neutral.yy",},"order":22,},

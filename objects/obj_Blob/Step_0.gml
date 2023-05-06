@@ -11,7 +11,8 @@ switch current_state
 		{
 			prev_state = current_state;
 			duration_stun = instance_place(x, y, obj_hitbox).hitstun;
-			vsp = -1*instance_place(x, y, obj_hitbox).kb;
+			vsp = -1*instance_place(x, y, obj_hitbox).kb_y;
+			hsp = instance_place(x, y, obj_hitbox).kb_x; // todo - horizontal based on relative location of hitbox
 			timer_stun = 0;
 			current_state = state_hit_stun;
 			break;
@@ -44,7 +45,8 @@ switch current_state
 			{
 				prev_state = current_state;
 				duration_stun = instance_place(x, y, obj_hitbox).hitstun;
-				vsp = -1*instance_place(x, y, obj_hitbox).kb;
+				vsp = -1*instance_place(x, y, obj_hitbox).kb_y;
+				hsp = instance_place(x, y, obj_hitbox).kb_x; // todo - horizontal based on relative location of hitbox
 				timer_stun = 0;
 				current_state = state_hit_stun;
 				break;
@@ -95,7 +97,7 @@ switch current_state
 			{
 				x = x + onepixel;
 			}
-			hsp = 0;
+			hsp = hsp * -1; // bounce on collision
 		}
 		x += hsp;
 		// check vertical collision
@@ -108,7 +110,7 @@ switch current_state
 				y = y + onepixel;
 			}
 			is_grounded = true;
-			vsp = 0;
+			vsp = vsp * -1; // bounce on collision
 			
 		}
 		else // still airborne 
