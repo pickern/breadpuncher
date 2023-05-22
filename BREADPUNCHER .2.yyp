@@ -13,6 +13,7 @@
     {"id":{"name":"idle","path":"sprites/idle/idle.yy",},"order":0,},
     {"id":{"name":"obj_input","path":"objects/obj_input/obj_input.yy",},"order":5,},
     {"id":{"name":"run1","path":"sprites/run1/run1.yy",},"order":2,},
+    {"id":{"name":"obj_game_manager","path":"objects/obj_game_manager/obj_game_manager.yy",},"order":7,},
     {"id":{"name":"Dust_particle","path":"sprites/Dust_particle/Dust_particle.yy",},"order":7,},
     {"id":{"name":"sprite_attack_slide","path":"sprites/sprite_attack_slide/sprite_attack_slide.yy",},"order":5,},
     {"id":{"name":"crouch","path":"sprites/crouch/crouch.yy",},"order":16,},

@@ -8,6 +8,7 @@ vsp = 0; //current vertical speed
 hsp_run = 5; //run speed
 air_accel = 1;
 vsp_jump = -8.5; //jump speed
+vsp_ff = 8; //fast fall speed
 wall_jump_speed = 6.5;
 
 ground_friction = .3;

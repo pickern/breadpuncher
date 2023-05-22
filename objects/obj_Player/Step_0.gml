@@ -266,6 +266,11 @@ switch current_state
 			can_dbl_jump = false;
 			vsp = vsp_jump;
 		}
+		//check if fast fall
+		else if key_down and vsp >= 0
+		{
+			vsp = vsp_ff;
+		}
 		// check if wall slide
 		else if ((place_meeting(x-1, y, Ground) and key_left) or (place_meeting(x+1, y, Ground) and key_right)) 
 		{
@@ -383,6 +388,11 @@ switch current_state
 	
 	break;
 	case state_attack_air:
+		//check if fast fall
+		if key_down and vsp >= 0
+		{
+			vsp = vsp_ff;
+		}
 		// TODO - fix hitbox drift
 		// create hitbox at start of move
 		if timer_anim == 0
