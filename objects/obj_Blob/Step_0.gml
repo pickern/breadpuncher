@@ -15,6 +15,7 @@ switch current_state
 			hsp = instance_place(x, y, obj_hitbox).kb_x; // todo - horizontal based on relative location of hitbox
 			timer_stun = 0;
 			current_state = state_hit_stun;
+			obj_hit_manager.add_hit(instance_place(x, y, obj_hitbox).owner, self); // register hit with hit manager
 			break;
 		}
 		// otherwise proceed with ground stuff
@@ -49,6 +50,7 @@ switch current_state
 				hsp = instance_place(x, y, obj_hitbox).kb_x; // todo - horizontal based on relative location of hitbox
 				timer_stun = 0;
 				current_state = state_hit_stun;
+				obj_hit_manager.add_hit(instance_place(x, y, obj_hitbox).owner, self); // register hit with hit manager
 				break;
 			}
 		// otherwise proceed with air stuff

@@ -388,6 +388,7 @@ switch current_state
 	
 	break;
 	case state_attack_air:
+		still_attacking = true; // flag to update hitbox location correctly
 		//check if fast fall
 		if key_down and vsp >= 0
 		{
@@ -397,19 +398,20 @@ switch current_state
 		// create hitbox at start of move
 		if timer_anim == 0
 		{
-			temp_hb = create_hitbox(x, y, current_attack.hitbox, 10, 10, 0, 0, image_xscale);
+			temp_hb = create_hitbox(x, y, current_attack.hitbox, 10, 10, 0, self, image_xscale);
 		}
 		// continue attack if timer hasn't reached end
 		if timer_anim < current_attack.dur
 		{
-			temp_hb.x = x; // update hitbox location
-			temp_hb.y = y;
+			//temp_hb.x = x; // update hitbox location
+			//temp_hb.y = y;
 			timer_anim += 1;	
 			sprite_index = current_attack.sprite;
 		}
 		// else end attack and revert to air
 		else
 		{
+			still_attacking = false;
 			instance_destroy(temp_hb);
 			timer_anim = 0;
 			current_state = state_air;
@@ -455,6 +457,7 @@ switch current_state
 			// check floor or ceiling collision
 			if place_meeting(x,y+1,Ground)	
 			{
+				still_attacking = false;
 				// update double jump flag and fix state
 				if hsp == 0 
 				{
@@ -478,19 +481,24 @@ switch current_state
 	
 		}
 		y += vsp;
+		
+		if still_attacking // update hitbox location
+		{
+			temp_hb.x = x; 
+			temp_hb.y = y;
+		}
 	
 	break;
 	case state_attack_ground:
+		still_attacking = true; // flag to update hitbox location correctly
 		// create hitbox at start of move
 		if timer_anim == 0
 		{
-			temp_hb = create_hitbox(x, y, current_attack.hitbox, 10, 10, 0, 0, image_xscale);
+			temp_hb = create_hitbox(x, y, current_attack.hitbox, 10, 10, 0, self, image_xscale);
 		}
 		// continue attack if timer hasn't reached end
 		if timer_anim < current_attack.dur
 		{
-			temp_hb.x = x; // update hitbox location
-			temp_hb.y = y;
 			timer_anim += 1;	
 			sprite_index = current_attack.sprite;
 			// hold last frame of attack if needed
@@ -503,6 +511,7 @@ switch current_state
 			timer_anim = 0;
 			current_state = state_ground_idle;
 			can_int = true;
+			still_attacking = false;
 		}
 		// do physics
 		if hsp != 0
@@ -536,6 +545,12 @@ switch current_state
 			instance_destroy(temp_hb);
 			timer_anim = 0;
 			current_state = state_air;
+			still_attacking = false;
+		}
+		if still_attacking // update hitbox location
+		{
+			temp_hb.x = x; 
+			temp_hb.y = y;
 		}
 	break;
 }
